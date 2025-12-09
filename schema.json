@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "title": "1Password Discount & Pricing Calculator",
+  "properties": {
+    "currency": {
+      "type": "string",
+      "title": "Currency",
+      "enum": [
+        "USD",
+        "CAD",
+        "EUR"
+      ],
+      "description": "Select the currency for this deal."
+    },
+    "website": {
+      "type": "string",
+      "title": "Customer Website URL",
+      "description": "Paste the customer\u2019s main website. Used to infer nonprofit status."
+    },
+    "current_users": {
+      "type": "integer",
+      "title": "Current Number of Users",
+      "minimum": 1,
+      "description": "Number of seats requested now. Calculator supports 20\u2013120 users."
+    },
+    "projected_users": {
+      "type": "integer",
+      "title": "Projected Users (12\u201324 months)",
+      "minimum": 1,
+      "description": "Estimated seat count in the next 1\u20132 years."
+    },
+    "contract_term": {
+      "type": "string",
+      "title": "Contract Term",
+      "enum": [
+        "Monthly",
+        "Annual",
+        "2-Year",
+        "3-Year"
+      ],
+      "description": "Select the term the customer is considering."
+    },
+    "sentiment": {
+      "type": "string",
+      "title": "Relationship Sentiment",
+      "enum": [
+        "New logo \u2013 cold",
+        "New logo \u2013 warm",
+        "Existing \u2013 neutral",
+        "Existing \u2013 strong",
+        "Save / churn-risk"
+      ],
+      "description": "How would you describe the relationship with this account?"
+    },
+    "deal_notes": {
+      "type": "string",
+      "title": "Deal Notes / Context",
+      "description": "Anything relevant: competition, budget, timelines, strategic value, etc."
+    },
+    "extra_discount": {
+      "type": "number",
+      "title": "Optional Additional Discount (%)",
+      "default": 0,
+      "minimum": 0,
+      "description": "Manual additional discount on top of the model\u2019s recommendation."
+    },
+    "generate_email": {
+      "type": "boolean",
+      "title": "Generate Draft Email?",
+      "default": false,
+      "description": "If true, generate a customer-facing email including pricing."
+    },
+    "email_info": {
+      "type": "string",
+      "title": "Additional Info for Email",
+      "description": "Optional points to include in the email."
+    }
+  },
+  "required": [
+    "currency",
+    "website",
+    "current_users",
+    "contract_term",
+    "sentiment"
+  ]
+}
